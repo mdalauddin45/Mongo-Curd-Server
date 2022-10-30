@@ -27,6 +27,8 @@ async function run() {
     // };
     // const result = await userCollection.insertOne(user);
     // console.log(result);
+
+    // get in users page
     app.get("/users", async (req, res) => {
       const query = {};
       const cursor = userCollection.find(query);
@@ -34,14 +36,14 @@ async function run() {
       res.send(user);
     });
 
-    // send to mongodb
+    // send to user information in mongodb
     app.post("/users", async (req, res) => {
       const user = req.body;
       console.log(user);
       const result = await userCollection.insertOne(user);
       res.send(result);
     });
-
+    // deleted to user information in mongodb(deletOne)
     app.delete("/users/:id", async (req, res) => {
       const id = req.params.id;
       console.log("tryin to delet", id);
