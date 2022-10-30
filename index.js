@@ -44,6 +44,7 @@ async function run() {
 
     app.delete("/users/:id", async (req, res) => {
       const id = req.params.id;
+      console.log(id);
       console.log("tryin to delet", id);
     });
   } finally {
